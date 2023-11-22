@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
-}
+/* ToyRobotGame.css */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 40px);
+  grid-template-rows: repeat(5, 40px);
+  gap: 5px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  padding: 20px 0 20px 0;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.robot {
+  background-color: #3498db;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.wall {
+  background-color: #e74c3c;
 }
+
+.app {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.comands {
+  display: flex !important;
+  justify-content: center !important;
+  padding-bottom: 5px !important;
+}
+
+.buttons {
+  display: flex !important;
+  justify-content: center !important;
+  padding: 6px;
+}
+
+h1 {
+  display: flex !important;
+  justify-content: center !important;
+  padding-top: 20px;
+}
+
+.report {
+  display: flex !important;
+  justify-content: center !important;
+  padding: 6px;
+}
+.report-text {
+  display: flex !important;
+  justify-content: center !important;
+  padding: 6px;
+}
+
