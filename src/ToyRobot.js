@@ -1,8 +1,7 @@
-// ToyRobotGame.js
 import React, { useState } from 'react';
 import './App.css';
 
-const ToyRobotGame = () => {
+const ToyRobot = () => {
   const [robotPosition, setRobotPosition] = useState(null);
   const [robotFacing, setRobotFacing] = useState(null);
   const [walls, setWalls] = useState(new Set());
@@ -191,4 +190,4 @@ return (
 );
 };
 
-export default ToyRobotGame;
+export default ToyRobot;
