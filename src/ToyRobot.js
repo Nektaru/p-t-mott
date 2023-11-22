@@ -133,6 +133,21 @@ const report = () => {
 
 //Improve?
 
+const getRandomCoordinate = () => Math.floor(Math.random() * boardSize) + 1;
+
+const handleRandomWall = () => {
+  const randomRow = getRandomCoordinate();
+  const randomCol = getRandomCoordinate();
+  placeWall(randomRow, randomCol);
+};
+
+const clearBoard = () => {
+    setRobotPosition(null);
+    setRobotFacing(null);
+    setWalls(new Set());
+    setReportText('');
+  };
+
 
 return (
   <div>
@@ -159,10 +174,12 @@ return (
     </div>
     <div className='buttons'>
       <button onClick={() => placeRobot(1, 1, 'NORTH')}>Place Robot</button>
+      <button onClick={handleRandomWall}>Place Random Wall</button>
       <button onClick={moveRobot}>Move</button>
       <button onClick={() => turnRobot('LEFT')}>Left</button>
       <button onClick={() => turnRobot('RIGHT')}>Right</button>
       <button onClick={report}>Report</button>
+      <button onClick={clearBoard}>Clear Board</button>
     </div>
     {reportText && (
       <div className='report'>
