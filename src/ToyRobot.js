@@ -28,11 +28,12 @@ const ToyRobot = () => {
 
     
 const placeRobot = (row, col, facing) => {
-  if (isValidCoordinate(row, col) && ['NORTH', 'SOUTH', 'EAST', 'WEST'].includes(facing)) {
+  if (isValidCoordinate(row, col) && !walls.has(`${row},${col}`) && ['NORTH', 'SOUTH', 'EAST', 'WEST'].includes(facing)) {
     setRobotPosition({ row, col });
     setRobotFacing(facing);
   }
 };
+
 
 
 const placeWall = (row, col) => {
@@ -137,10 +138,14 @@ const getRandomCoordinate = () => Math.floor(Math.random() * boardSize) + 1;
 
 
 const handleRandomWall = () => {
-  const randomRow = getRandomCoordinate();
-  const randomCol = getRandomCoordinate();
-  placeWall(randomRow, randomCol);
-};
+    let randomRow, randomCol;
+      do {
+      randomRow = getRandomCoordinate();
+      randomCol = getRandomCoordinate();
+    } while (walls.has(`${randomRow},${randomCol}`) || isRobotAtPosition(randomRow, randomCol));
+  
+    placeWall(randomRow, randomCol);
+  };
 
 
 const clearBoard = () => {
