@@ -10,7 +10,6 @@ const ToyRobot = () => {
 
   const boardSize = 5;
 
-  
   const processPlaceCommand = (command) => {
       const matchRobot = command.match(/^PLACE_ROBOT (\d+),(\d+),(NORTH|SOUTH|EAST|WEST)$/);
   
@@ -27,7 +26,7 @@ const ToyRobot = () => {
       }
     };
 
-
+    
 const placeRobot = (row, col, facing) => {
   if (isValidCoordinate(row, col) && ['NORTH', 'SOUTH', 'EAST', 'WEST'].includes(facing)) {
     setRobotPosition({ row, col });
@@ -171,13 +170,13 @@ return (
     </div>
     <div className='comands'>
       <label>
-        Comando:
+        Comando : 
         <input type="text" value={inputCommand} onChange={handleInputChange} />
       </label>
       <button onClick={handleExecuteCommand}>Ejecutar</button>
     </div>
     <div className='buttons'>
-      <button onClick={() => placeRobot(1, 1, 'NORTH')}>Place Robot</button>
+      <button onClick={() => placeRobot(1, 1, 'NORTH')}>Place Initial Robot</button>
       <button onClick={handleRandomWall}>Place Random Wall</button>
       <button onClick={moveRobot}>Move</button>
       <button onClick={() => turnRobot('LEFT')}>Left</button>
@@ -191,6 +190,18 @@ return (
         <p className='report-text'>{reportText}</p>
       </div>
     )}
+    <div className='instrucciones'>
+        <h2>Instrucciones:</h2> 
+            <p>El comando PLACE_ROBOT debe incluir (PLACE_ROBOT + Coordenada 1ª, coordenada 2ª, coordenada de dirección ('NORTH', 'SOUTH', 'EAST', 'WEST))</p>
+            <p>El comando PLACE_WALL debe incluir (PLACE_WALL + Coordenada 1ª, coordenada 2ª)</p>
+            <p>Place initial robot colocará el robot en la posición 1,1 con dirección NORTH</p>
+            <p>Move desplazará el robot una posición en la dirección en la que esté mirando ('NORTH', 'SOUTH', 'EAST', 'WEST)</p>
+            <p>Left girará 90º a la izquierda la dirección actual del robot </p>
+            <p>Right girará 90º a la derecha la dirección actual del robot </p>
+            <p>Place random wall colocará una wall en una posición aleatoria</p>
+            <p>Report imprimirá en pantalla las coordenadas actuales del Robot</p>
+            <p>Clear board eliminará todas las walls y el robot de la pantalla</p>
+    </div>
   </div>
 );
 };
