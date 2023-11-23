@@ -36,6 +36,7 @@ const placeRobot = (row, col, facing) => {
 
 
 
+
 const placeWall = (row, col) => {
   if (isValidCoordinate(row, col) && !walls.has(`${row},${col}`) && !isRobotAtPosition(row, col)) {
     setWalls(new Set(walls.add(`${row},${col}`)));
@@ -54,28 +55,28 @@ const moveRobot = () => {
     let { row, col } = robotPosition;
 
     switch (robotFacing) {
-      case 'NORTH':
+      case 'WEST':
         if (col - 1 >= 1 && !walls.has(`${row},${col - 1}`)) {
           col -= 1;
         } else if (col - 1 < 1 && !walls.has(`${row},${boardSize}`)) {
           col = boardSize;
         }
         break;
-      case 'EAST':
+      case 'NORTH':
         if (row + 1 <= boardSize && !walls.has(`${row + 1},${col}`)) {
           row += 1;
         } else if (row + 1 > boardSize && !walls.has(`1,${col}`)) {
           row = 1;
         }
         break;
-      case 'SOUTH':
+      case 'EAST':
         if (col + 1 <= boardSize && !walls.has(`${row},${col + 1}`)) {
           col += 1;
         } else if (col + 1 > boardSize && !walls.has(`${row},1`)) {
           col = 1;
         }
         break;
-      case 'WEST':
+      case 'SOUTH':
         if (row - 1 >= 1 && !walls.has(`${row - 1},${col}`)) {
           row -= 1;
         } else if (row - 1 < 1 && !walls.has(`${boardSize},${col}`)) {

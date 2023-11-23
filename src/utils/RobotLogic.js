@@ -1,4 +1,3 @@
-// utils/robotActions.js
 export const placeRobot = (row, col, facing, setRobotPosition, setRobotFacing, isValidCoordinate) => {
     if (isValidCoordinate(row, col) && ['NORTH', 'SOUTH', 'EAST', 'WEST'].includes(facing)) {
       setRobotPosition({ row, col });
