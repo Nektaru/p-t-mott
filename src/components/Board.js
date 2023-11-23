@@ -1,4 +1,3 @@
-// board.js
 import React from 'react';
 import Wall from './Walls';
 import Robot from './Robot';
