@@ -10,6 +10,7 @@ const ToyRobot = () => {
 
   const boardSize = 5;
 
+  
   const processPlaceCommand = (command) => {
       const matchRobot = command.match(/^PLACE_ROBOT (\d+),(\d+),(NORTH|SOUTH|EAST|WEST)$/);
   
@@ -26,6 +27,7 @@ const ToyRobot = () => {
       }
     };
 
+
 const placeRobot = (row, col, facing) => {
   if (isValidCoordinate(row, col) && ['NORTH', 'SOUTH', 'EAST', 'WEST'].includes(facing)) {
     setRobotPosition({ row, col });
@@ -33,13 +35,16 @@ const placeRobot = (row, col, facing) => {
   }
 };
 
+
 const placeWall = (row, col) => {
   if (isValidCoordinate(row, col) && !walls.has(`${row},${col}`) && !isRobotAtPosition(row, col)) {
     setWalls(new Set(walls.add(`${row},${col}`)));
   }
 };
 
+
 const isValidCoordinate = (row, col) => row >= 1 && row <= boardSize && col >= 1 && col <= boardSize;
+
 
 const isRobotAtPosition = (row, col) => robotPosition && robotPosition.row === row && robotPosition.col === col;
 
@@ -85,18 +90,17 @@ const moveRobot = () => {
   }
 };
 
+
 const turnRobot = (direction) => {
   if (robotFacing) {
     const directions = ['NORTH', 'EAST', 'SOUTH', 'WEST'];
     const currentIdx = directions.indexOf(robotFacing);
 
-    // Gira 90 grados hacia la izquierda
     if (direction === 'LEFT') {
       const degrees = 90;
       const newIdx = (currentIdx - degrees / 90 + 4) % 4;
       setRobotFacing(directions[newIdx]);
     } 
-    // Gira 90 grados hacia la derecha
     else if (direction === 'RIGHT') {
       const degrees = 90;
       const newIdx = (currentIdx + degrees / 90) % 4;
@@ -115,10 +119,10 @@ const handleExecuteCommand = () => {
     }
 };
 
+
 const handleInputChange = (event) => {
     setInputCommand(event.target.value);
   };
-
 
   
 const report = () => {
@@ -130,15 +134,15 @@ const report = () => {
   };
 
 
-//Improve?
-
 const getRandomCoordinate = () => Math.floor(Math.random() * boardSize) + 1;
+
 
 const handleRandomWall = () => {
   const randomRow = getRandomCoordinate();
   const randomCol = getRandomCoordinate();
   placeWall(randomRow, randomCol);
 };
+
 
 const clearBoard = () => {
     setRobotPosition(null);
@@ -147,6 +151,7 @@ const clearBoard = () => {
     setReportText('');
   };
 
+  
 
 return (
   <div>

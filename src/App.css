@@ -2,8 +2,8 @@
 
 .board {
   display: grid;
-  grid-template-columns: repeat(5, 40px);
-  grid-template-rows: repeat(5, 40px);
+  grid-template-columns: repeat(5, 60px);
+  grid-template-rows: repeat(5, 60px);
   gap: 5px;
   display: flex;
   justify-content: center;
@@ -21,8 +21,12 @@
 }
 
 .robot {
-  background-color: #3498db;
-}
+  background: radial-gradient(circle, white 15%, transparent 40%), #3a47b7;
+    background: -webkit-radial-gradient(circle, white 15%, transparent 40%), #3a47b7;
+    background: -moz-radial-gradient(circle, white 15%, transparent 40%), #3a47b7;
+    /* half of 150 width makes 2 eyes! */
+    border-radius: 60px 60px 10px 10px ;
+    border-bottom: 40px double #f1eeee;}
 
 .wall {
   background-color: #e74c3c;
