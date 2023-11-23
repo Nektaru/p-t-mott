@@ -1,13 +1,11 @@
 .board {
+  display: grid;
+  grid-template-rows: repeat(5, 60px);
+  grid-template-columns: repeat(5, 60px);
+  gap: 5px;
   display: flex;
-  flex-direction: column-reverse;
   justify-content: center;
-  align-items: center;
   padding: 20px 0 20px 0;
-}
-
-.row {
-  display: flex;
 }
 
 .cell {
@@ -18,11 +16,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2px;
+  padding: 3px !important;
 }
 
 .robot {
   background: radial-gradient(circle, white -250%, transparent 40%), #3a47b7;
+    background: -webkit-radial-gradient(circle, white 15%, transparent 40%), #3a47b7;
+    background: -moz-radial-gradient(circle, white 15%, transparent 40%), #3a47b7;
     border-radius: 60px 60px 10px 10px ;
     border-bottom: 40px double #f1eeee;
   }
@@ -53,8 +53,7 @@
 .buttons {
   display: flex !important;
   justify-content: center !important;
-  gap: 5px;
-  padding-top: 10px;
+  padding: 6px;
 }
 
 h1 {
